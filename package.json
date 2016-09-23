@@ -2,7 +2,7 @@
   "name": "city-picker",
   "version": "0.1.0",
   "description": "react-city-picker",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
