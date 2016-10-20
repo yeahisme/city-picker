@@ -4,6 +4,9 @@
         "eslint-config-airbnb"
     ],
     "rules": {
-        "linebreak-style": "off"
+        "linebreak-style": "off",
+        "indent": "off",
+        "comma-dangle": "off",
+        "import/no-extraneous-dependencies": "off"
     }
 }

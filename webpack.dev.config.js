@@ -1,44 +1,39 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: path.resolve(__dirname, './src/index.tsx'),
+    // eval-source-map is faster for development
+    devtool: '#eval-source-map',
 
+    entry: ['webpack-dev-server/client?http://localhost:3000',
+        'webpack/hot/dev-server', path.resolve(__dirname, './demo.tsx')],
     output: {
-        path: './dist/',
-        filename: '[name].js',
-        library: 'MiceCityPicker',
-        libraryTarget: 'umd',
-        umdNamedDefine: true
+        path: path.resolve(__dirname),
+        filename: '[name].js'
     },
-    externals: {
-        antd: {
-            root: 'antd',
-            commonjs: 'antd',
-            commonjs2: 'antd',
-            amd: 'antd'
-        },
-        React: {
-            root: 'react',
-            commonjs: 'react',
-            commonjs2: 'react',
-            amd: 'react'
-        }
-    },
-
     plugins: [
         // new webpack.DefinePlugin({
-        //     'process.env': config.build.env
+        //     'process.env.NODE_ENV': 'development'
         // }),
-        new ExtractTextPlugin('[name].css')
+        new ExtractTextPlugin('[name].css'),
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin(),
+        new HtmlWebpackPlugin({
+            filename: 'demo.html',
+            template: 'demo.html',
+            inject: true
+        })
     ],
+
 
     module: {
         loaders: [
             // html
             { test: /\.htm(l?)$/, loader: 'html-loader' },
-            { test: /\.js$/, loader: 'babel-loader' },
+
             // ts tsx
             { test: /\.tsx?$/, loader: 'ts-loader' },
             // .css 文件使用 style-loader 和 css-loader 来处理
