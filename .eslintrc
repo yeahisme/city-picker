@@ -3,10 +3,15 @@
     "extends": [
         "eslint-config-airbnb"
     ],
+    "globals":{
+        "window": true,
+        "document": true  
+    },
     "rules": {
         "linebreak-style": "off",
         "indent": "off",
         "comma-dangle": "off",
-        "import/no-extraneous-dependencies": "off"
+        "import/no-extraneous-dependencies": "off",
+        "react/jsx-filename-extension": "off"
     }
 }
