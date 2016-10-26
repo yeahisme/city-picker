@@ -38,7 +38,7 @@ module.exports = {
         loaders: [
             // html
             { test: /\.htm(l?)$/, loader: 'html-loader' },
-            { test: /\.js$/, loader: 'babel-loader' },
+            { test: /\.js$/, loader: 'babel-loader', query: { compact: false } },
             // ts tsx
             { test: /\.tsx?$/, loader: 'ts-loader' },
             // .css 文件使用 style-loader 和 css-loader 来处理

@@ -8,15 +8,15 @@ module.exports = {
     devtool: '#eval-source-map',
 
     entry: ['webpack-dev-server/client?http://localhost:3000',
-        'webpack/hot/dev-server', path.resolve(__dirname, './demo')],
+        'webpack/HOT/dev-server', path.resolve(__dirname, './demo')],
     output: {
         path: path.resolve(__dirname),
         filename: '[name].js'
     },
     plugins: [
-        // new webpack.DefinePlugin({
-        //     'process.env.NODE_ENV': 'development'
-        // }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': '"development"'
+        }),
         new ExtractTextPlugin('[name].css'),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
@@ -33,7 +33,7 @@ module.exports = {
         loaders: [
             // html
             { test: /\.htm(l?)$/, loader: 'html-loader' },
-            { test: /\.js$/, loader: 'babel-loader' },
+            { test: /\.js$/, loader: 'babel-loader', query: { compact: false } },
             // ts tsx
             { test: /\.tsx?$/, loader: 'ts-loader' },
             // .css 文件使用 style-loader 和 css-loader 来处理

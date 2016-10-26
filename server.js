@@ -6,7 +6,7 @@ const compiler = webpack(webpackConfig);
 
 new WebpackDevServer(compiler, {
     publicPath: webpackConfig.output.publicPath,
-    hot: true,
+    HOT: true,
     historyApiFallback: true
 }).listen(3000, 'localhost', (err) => {
     if (err) console.log(err);

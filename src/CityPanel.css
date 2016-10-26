@@ -104,6 +104,12 @@
     text-decoration: none;
     color: #fff;
 }
+.city_select_lhsl .city_item a.selected {
+    background-color: #2577E3;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #2577E3;
+}
 
 .city_item .city_item_in {
     width: 378px;
@@ -139,4 +145,8 @@
 
 .city_select_lhsl .search_history_box {
     margin-bottom: 6px;
+}
+
+.city_select_lhsl div.hide {
+    display: none
 }
