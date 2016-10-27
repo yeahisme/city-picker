@@ -8,7 +8,6 @@ class CityItem extends Component {
     }
 
     onSelectCity() {
-        console.log('onSelectCity');
         this.props.onSelectCity(this.props.city, this.props.index);
     }
     render() {

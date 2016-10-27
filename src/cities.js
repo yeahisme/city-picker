@@ -9,7 +9,7 @@ const cities = [
         "cityNameEn": "Shanghai",
         "cityNameCn": "上海",
         "cityCode": 2,
-        "checked": true
+        "checked": false
     },
     {
         "cityNameEn": "Tianjin",
@@ -258,12 +258,6 @@ const cities = [
         "checked": false
     },
     {
-        "cityNameEn": "Beijing",
-        "cityNameCn": "北京",
-        "cityCode": 1,
-        "checked": false
-    },
-    {
         "cityNameEn": "Bengbu",
         "cityNameCn": "蚌埠",
         "cityCode": 182,
@@ -372,12 +366,6 @@ const cities = [
         "checked": false
     },
     {
-        "cityNameEn": "Chengdu",
-        "cityNameCn": "成都",
-        "cityCode": 28,
-        "checked": false
-    },
-    {
         "cityNameEn": "chengmai",
         "cityNameCn": "澄迈",
         "cityCode": 20836,
@@ -408,12 +396,6 @@ const cities = [
         "checked": false
     },
     {
-        "cityNameEn": "Chongqing",
-        "cityNameCn": "重庆",
-        "cityCode": 4,
-        "checked": false
-    },
-    {
         "cityNameEn": "Chongzuo",
         "cityNameCn": "崇左",
         "cityCode": 1896,
@@ -429,12 +411,6 @@ const cities = [
         "cityNameEn": "Dali",
         "cityNameCn": "大理市",
         "cityCode": 36,
-        "checked": false
-    },
-    {
-        "cityNameEn": "Dalian",
-        "cityNameCn": "大连",
-        "cityCode": 6,
         "checked": false
     },
     {
@@ -606,12 +582,6 @@ const cities = [
         "checked": false
     },
     {
-        "cityNameEn": "Guangzhou",
-        "cityNameCn": "广州",
-        "cityCode": 32,
-        "checked": false
-    },
-    {
         "cityNameEn": "Guigang",
         "cityNameCn": "贵港",
         "cityCode": 1518,
@@ -669,12 +639,6 @@ const cities = [
         "cityNameEn": "Handan",
         "cityNameCn": "邯郸",
         "cityCode": 275,
-        "checked": false
-    },
-    {
-        "cityNameEn": "Hangzhou",
-        "cityNameCn": "杭州",
-        "cityCode": 17,
         "checked": false
     },
     {
@@ -741,12 +705,6 @@ const cities = [
         "cityNameEn": "hezhou",
         "cityNameCn": "贺州",
         "cityCode": 4146,
-        "checked": false
-    },
-    {
-        "cityNameEn": "Hong Kong",
-        "cityNameCn": "香港",
-        "cityCode": 58,
         "checked": false
     },
     {
@@ -897,12 +855,6 @@ const cities = [
         "cityNameEn": "Jilong",
         "cityNameCn": "基隆",
         "cityCode": 7810,
-        "checked": false
-    },
-    {
-        "cityNameEn": "Jinan",
-        "cityNameCn": "济南",
-        "cityCode": 144,
         "checked": false
     },
     {
@@ -1248,12 +1200,6 @@ const cities = [
         "checked": false
     },
     {
-        "cityNameEn": "Nanjing",
-        "cityNameCn": "南京",
-        "cityCode": 12,
-        "checked": false
-    },
-    {
         "cityNameEn": "Nanning",
         "cityNameCn": "南宁",
         "cityCode": 380,
@@ -1287,12 +1233,6 @@ const cities = [
         "cityNameEn": "Neijiang",
         "cityNameCn": "内江",
         "cityCode": 1597,
-        "checked": false
-    },
-    {
-        "cityNameEn": "Ningbo",
-        "cityNameCn": "宁波",
-        "cityCode": 375,
         "checked": false
     },
     {
@@ -1377,12 +1317,6 @@ const cities = [
         "cityNameEn": "qiannan",
         "cityNameCn": "黔南",
         "cityCode": 21179,
-        "checked": false
-    },
-    {
-        "cityNameEn": "Qingdao",
-        "cityNameCn": "青岛",
-        "cityCode": 7,
         "checked": false
     },
     {
@@ -1476,18 +1410,6 @@ const cities = [
         "checked": false
     },
     {
-        "cityNameEn": "Sanya",
-        "cityNameCn": "三亚",
-        "cityCode": 43,
-        "checked": false
-    },
-    {
-        "cityNameEn": "Shanghai",
-        "cityNameCn": "上海",
-        "cityCode": 2,
-        "checked": false
-    },
-    {
         "cityNameEn": "Shangluo",
         "cityNameCn": "商洛",
         "cityCode": 7551,
@@ -1533,18 +1455,6 @@ const cities = [
         "cityNameEn": "Shaoyang",
         "cityNameCn": "邵阳",
         "cityCode": 1111,
-        "checked": false
-    },
-    {
-        "cityNameEn": "Shenyang",
-        "cityNameCn": "沈阳",
-        "cityCode": 451,
-        "checked": false
-    },
-    {
-        "cityNameEn": "Shenzhen",
-        "cityNameCn": "深圳",
-        "cityCode": 30,
         "checked": false
     },
     {
@@ -1620,12 +1530,6 @@ const cities = [
         "checked": false
     },
     {
-        "cityNameEn": "Suzhou",
-        "cityNameCn": "苏州",
-        "cityCode": 14,
-        "checked": false
-    },
-    {
         "cityNameEn": "Tacheng",
         "cityNameCn": "塔城",
         "cityCode": 455,
@@ -1647,12 +1551,6 @@ const cities = [
         "cityNameEn": "Tainan",
         "cityNameCn": "台南",
         "cityCode": 3847,
-        "checked": false
-    },
-    {
-        "cityNameEn": "Taipei",
-        "cityNameCn": "台北",
-        "cityCode": 617,
         "checked": false
     },
     {
@@ -1683,12 +1581,6 @@ const cities = [
         "cityNameEn": "Taoyuan",
         "cityNameCn": "桃园",
         "cityCode": 7570,
-        "checked": false
-    },
-    {
-        "cityNameEn": "Tianjin",
-        "cityNameCn": "天津",
-        "cityCode": 3,
         "checked": false
     },
     {
@@ -1794,12 +1686,6 @@ const cities = [
         "checked": false
     },
     {
-        "cityNameEn": "Wuhan",
-        "cityNameCn": "武汉",
-        "cityCode": 477,
-        "checked": false
-    },
-    {
         "cityNameEn": "Wuhu",
         "cityNameCn": "芜湖",
         "cityCode": 478,
@@ -1839,24 +1725,6 @@ const cities = [
         "cityNameEn": "Wuzhou",
         "cityNameCn": "梧州",
         "cityCode": 492,
-        "checked": false
-    },
-    {
-        "cityNameEn": "Xiamen",
-        "cityNameCn": "厦门",
-        "cityCode": 25,
-        "checked": false
-    },
-    {
-        "cityNameEn": "Xian",
-        "cityNameCn": "西安",
-        "cityCode": 10,
-        "checked": false
-    },
-    {
-        "cityNameEn": "Hong Kong",
-        "cityNameCn": "香港",
-        "cityCode": 58,
         "checked": false
     },
     {
