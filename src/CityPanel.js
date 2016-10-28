@@ -7,7 +7,7 @@ import './CityPanel.css';
 import CityItem from './CityItem';
 
 /**
- * 常量
+ * constant CITY_SECTION_KEY
  * @type {{HOT: string, A: string, E: string, J: string, N: string, T: string, Y: string}}
  */
 const CITY_SECTION_KEY = {
@@ -21,7 +21,7 @@ const CITY_SECTION_KEY = {
 };
 
 /**
- * 默认城市面板
+ * default city panel
  */
 class CityPanel extends Component {
     constructor(props){
@@ -32,9 +32,9 @@ class CityPanel extends Component {
     }
 
     /**
-     * 切换城市面板
-     * @param sectionKey 面板的key
-     * @returns {function()} 点击事件的回调函数
+     * change city panel
+     * @param sectionKey key of the panel
+     * @returns {function()} click function callback
      */
     changeCitySection(sectionKey) {
         return () => {
@@ -45,9 +45,9 @@ class CityPanel extends Component {
     }
 
     /**
-     * 渲染城市数据
-     * @param startIndex 起始索引
-     * @param endIndex 结束索引，不包含endIndex
+     * render city item in panel
+     * @param startIndex start index
+     * @param endIndex end index, not include end index item
      * @returns {*}
      */
     renderCityItem(startIndex, endIndex) {
@@ -61,7 +61,7 @@ class CityPanel extends Component {
     }
 
     /**
-     * 渲染城市面板
+     * render city panel
      * @returns {XML}
      */
     render() {
