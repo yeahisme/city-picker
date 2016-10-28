@@ -3,6 +3,8 @@
     padding: 10px;
     border: 1px solid #999;
     background-color: #fff;
+    position: absolute;
+    z-index: 999;
 }
 
 .city_select_lhsl .close {

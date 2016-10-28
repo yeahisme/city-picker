@@ -11,6 +11,8 @@ const UNSELECTABLE_STYLE = {
     userSelect: 'none',
     WebkitUserSelect: 'none',
 };
+const ENTER_KEY_CODE = 13;
+
 class CityInput extends Component {
     static defaultProps = {
         disabled: false,
@@ -38,6 +40,9 @@ class CityInput extends Component {
     onClick(e) {
         e.preventDefault();
         e.stopPropagation();
+        if(this.props.disabled) {
+            return false;
+        }
         this.props.openCityPanel(true);
         this.getSearchInputDOM().focus();
     }
@@ -47,10 +52,28 @@ class CityInput extends Component {
         this.setInputValue(value);
     }
 
+    onInputKeyDown(e){
+        let keyCode = e.keyCode;
+        if(keyCode === ENTER_KEY_CODE) {
+            let value = e.target.value;
+            this.props.onAddCity(value);
+            this.setInputValue('');
+        }
+    }
+
     setInputValue(inputValue) {
         this.setState({
             inputValue
         });
+    }
+
+    onRemoveCity(city, e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if(this.props.disabled) {
+            return false;
+        }
+        this.props.onRemoveCity(city);
     }
 
     getSearchInputDOM(){
@@ -97,7 +120,7 @@ class CityInput extends Component {
                 <div className="ant-select-selection__choice__content">
                     {content}
                 </div>
-                <span className="ant-select-selection__choice__remove" onClick={()=>{console.log(1)}} />
+                <span className="ant-select-selection__choice__remove" onClick={this.onRemoveCity.bind(this, item)} />
             </li>
         );
     }
@@ -123,7 +146,10 @@ class CityInput extends Component {
                 <div className="ant-select-search__field__wrap">
                     <input className="ant-select-search__field"
                            onChange={this.onInputChange.bind(this)}
-                           ref="searchInput"/>
+                           onKeyDown={this.onInputKeyDown.bind(this)}
+                           ref="searchInput"
+                           disabled={this.props.disabled}
+                           value={this.state.inputValue}/>
                     <span className="ant-select-search__field__mirror" ref="searchInputMirror">
                         {this.state.inputValue}
                     </span>
@@ -181,6 +207,8 @@ CityInput.propTypes = {
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
     value: PropTypes.array,
-    openCityPanel: PropTypes.func
+    openCityPanel: PropTypes.func,
+    onAddCity: PropTypes.func,
+    onRemoveCity: PropTypes.func
 };
 export default CityInput;

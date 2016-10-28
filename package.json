@@ -1,11 +1,12 @@
 {
   "name": "city-picker",
   "version": "0.1.0",
-  "description": "react-city-picker",
+  "description": "mice-city-picker",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node ./server"
+    "dev": "node ./server",
+    "pkg": "webpack --config -d"
   },
   "repository": {
     "type": "git",

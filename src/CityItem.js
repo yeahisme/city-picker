@@ -24,6 +24,7 @@ class CityItem extends Component {
 }
 CityItem.propTypes = {
     city: PropTypes.instanceOf(Map).isRequired,
+    index: PropTypes.number.isRequired,
     onSelectCity: PropTypes.func.isRequired
 };
 

@@ -3,23 +3,29 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: path.resolve(__dirname, './src/index.tsx'),
+    entry: path.resolve(__dirname, './src/index'),
 
     output: {
         path: './dist/',
         filename: '[name].js',
-        library: 'MiceCityPicker',
+        library: 'CityPicker',
         libraryTarget: 'umd',
         umdNamedDefine: true
     },
     externals: {
-        antd: {
-            root: 'antd',
-            commonjs: 'antd',
-            commonjs2: 'antd',
-            amd: 'antd'
+        classnames: {
+            root: 'classnames',
+            commonjs: 'classnames',
+            commonjs2: 'classnames',
+            amd: 'classnames'
         },
-        React: {
+        immutable: {
+            root: 'immutable',
+            commonjs: 'immutable',
+            commonjs2: 'immutable',
+            amd: 'immutable'
+        },
+        react: {
             root: 'react',
             commonjs: 'react',
             commonjs2: 'react',

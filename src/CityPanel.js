@@ -6,8 +6,6 @@ import Animate from 'rc-animate';
 import './CityPanel.css';
 import CityItem from './CityItem';
 
-console.log('init');
-
 /**
  * 常量
  * @type {{HOT: string, A: string, E: string, J: string, N: string, T: string, Y: string}}
@@ -55,7 +53,10 @@ class CityPanel extends Component {
     renderCityItem(startIndex, endIndex) {
         const cities = this.props.cities.slice(startIndex, endIndex);
         return cities.map((item, index) => {
-            return <CityItem city={item} index={startIndex + index} key={item.get('cityCode')} onSelectCity={this.props.onSelectCity}/>
+            return <CityItem city={item}
+                             index={startIndex + index}
+                             key={item.get('cityCode')}
+                             onSelectCity={this.props.onSelectCity}/>
         });
     }
 
@@ -68,7 +69,9 @@ class CityPanel extends Component {
         return (
             <Animate showProp='data-show'
                      transitionName={'fade'}>
-                <div className="city_select_lhsl" data-show={this.props.open} style={{display: this.props.open ? 'block' : 'none'}}>
+                <div className="city_select_lhsl"
+                     data-show={this.props.open}
+                     style={{display: this.props.open ? 'block' : 'none'}}>
                     <a className="close CQ_suggestionClose" onClick={()=>{this.props.openCityPanel(false)}}>×</a>
                     <p className="title">支持中文/拼音/简拼输入</p>
                     <ul className="tab_box">
@@ -100,13 +103,13 @@ class CityPanel extends Component {
                             onClick={this.changeCitySection(CITY_SECTION_KEY.Y)}><span>YZ</span></li>
                     </ul>
 
-                    <div className={classnames({'city_item': true, 'hide': this.state.section != CITY_SECTION_KEY.HOT})}>
+                    <div className={classnames({'city_item': true, 'hide': this.state.section !== CITY_SECTION_KEY.HOT})}>
                         <div>
                             {this.renderCityItem(0, 21)}
                         </div>
                     </div>
 
-                    <div className={classnames({'city_item': true, hide: this.state.section != CITY_SECTION_KEY.A})}>
+                    <div className={classnames({'city_item': true, hide: this.state.section !== CITY_SECTION_KEY.A})}>
                         <div className="city_item_in">
                             <span className="city_item_letter">A</span>
                             {this.renderCityItem(21, 30)}
@@ -137,7 +140,7 @@ class CityPanel extends Component {
 
                     </div>
 
-                    <div className={classnames({'city_item': true, hide: this.state.section != CITY_SECTION_KEY.E})}>
+                    <div className={classnames({'city_item': true, hide: this.state.section !== CITY_SECTION_KEY.E})}>
                         <div className="city_item_in">
                             <span className="city_item_letter">E</span>
                             {this.renderCityItem(86, 88)}
@@ -167,7 +170,7 @@ class CityPanel extends Component {
 
                     </div>
 
-                    <div className={classnames({'city_item': true, hide: this.state.section != CITY_SECTION_KEY.J})}>
+                    <div className={classnames({'city_item': true, hide: this.state.section !== CITY_SECTION_KEY.J})}>
                         <div className="city_item_in">
                             <span className="city_item_letter">J</span>
                             {this.renderCityItem(141, 164)}
@@ -197,7 +200,7 @@ class CityPanel extends Component {
 
                     </div>
 
-                    <div className={classnames({'city_item': true, hide: this.state.section != CITY_SECTION_KEY.N})}>
+                    <div className={classnames({'city_item': true, hide: this.state.section !== CITY_SECTION_KEY.N})}>
                         <div className="city_item_in">
                             <span className="city_item_letter">N</span>
                             {this.renderCityItem(206, 218)}
@@ -234,7 +237,7 @@ class CityPanel extends Component {
 
                     </div>
 
-                    <div className={classnames({'city_item': true, hide: this.state.section != CITY_SECTION_KEY.T})}>
+                    <div className={classnames({'city_item': true, hide: this.state.section !== CITY_SECTION_KEY.T})}>
                         <div className="city_item_in">
                             <span className="city_item_letter">T</span>
                             {this.renderCityItem(271, 290)}
@@ -264,7 +267,7 @@ class CityPanel extends Component {
 
                     </div>
 
-                    <div className={classnames({'city_item': true, hide: this.state.section != CITY_SECTION_KEY.Y})}>
+                    <div className={classnames({'city_item': true, hide: this.state.section !== CITY_SECTION_KEY.Y})}>
                         <div className="city_item_in">
                             <span className="city_item_letter">Y</span>
                             {this.renderCityItem(328, 352)}
@@ -287,7 +290,6 @@ class CityPanel extends Component {
 }
 
 CityPanel.propTypes = {
-    showCityPanel: PropTypes.bool,
     cities: PropTypes.instanceOf(List)
 };
 
