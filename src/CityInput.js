@@ -2,10 +2,11 @@
  * Created by q.chen on 2016/10/27.
  * City input
  */
-const classnames = require('classnames');
 import Animate from 'rc-animate';
 import React, { Component, PropTypes } from 'react';
 import './CityInput.css';
+
+const classnames = require('classnames');
 
 const UNSELECTABLE_STYLE = {
     userSelect: 'none',
@@ -19,14 +20,14 @@ class CityInput extends Component {
         open: false
     };
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             inputValue: ''
         };
     }
 
-    componentDidUpdate(){
+    componentDidUpdate() {
         const inputNode = this.getSearchInputDOM();
         const mirrorNode = this.getSearchInputMirrorDOM();
         if (inputNode.value) {
@@ -40,21 +41,21 @@ class CityInput extends Component {
     onClick(e) {
         e.preventDefault();
         e.stopPropagation();
-        if(this.props.disabled) {
+        if (this.props.disabled) {
             return false;
         }
         this.props.openCityPanel(true);
         this.getSearchInputDOM().focus();
     }
 
-    onInputChange(e){
+    onInputChange(e) {
         let value = e.target.value;
         this.setInputValue(value);
     }
 
-    onInputKeyDown(e){
+    onInputKeyDown(e) {
         let keyCode = e.keyCode;
-        if(keyCode === ENTER_KEY_CODE) {
+        if (keyCode === ENTER_KEY_CODE) {
             let value = e.target.value;
             this.props.onAddCity(value);
             this.setInputValue('');
@@ -70,13 +71,13 @@ class CityInput extends Component {
     onRemoveCity(city, e) {
         e.preventDefault();
         e.stopPropagation();
-        if(this.props.disabled) {
+        if (this.props.disabled) {
             return false;
         }
         this.props.onRemoveCity(city);
     }
 
-    getSearchInputDOM(){
+    getSearchInputDOM() {
         return this.refs.searchInput;
     }
 
@@ -92,8 +93,8 @@ class CityInput extends Component {
         const placeholderStyle = this.props.placeholder ? {} : UNSELECTABLE_STYLE;
         return (
             <div unselectable="unselectable"
-                 className="ant-select-selection__placeholder"
-                 style={placeholderStyle}>
+                className="ant-select-selection__placeholder"
+                style={placeholderStyle}>
                 {this.props.placeholder}
             </div>
         );
@@ -105,12 +106,12 @@ class CityInput extends Component {
      * @param index index
      * @returns {XML} city tag
      */
-    renderTag(item, index){
+    renderTag(item, index) {
         const disabled = this.props.disabled;
         const choiceClassName = disabled
             ? `ant-select-selection__choice ant-select-selection__choice__disabled`
             : `ant-select-selection__choice`;
-        const key = typeof item === 'string' ? item: item.key;
+        const key = typeof item === 'string' ? item : item.key;
         const content = typeof item === 'string' ? item : item.label;
         return (
             <li style={UNSELECTABLE_STYLE}
@@ -137,7 +138,7 @@ class CityInput extends Component {
      * render search input
      * @returns {XML}
      */
-    renderInput(){
+    renderInput() {
         return (
             <li className={classnames({
                 'ant-select-search': true,
@@ -145,11 +146,11 @@ class CityInput extends Component {
             })} key="li-searchInput">
                 <div className="ant-select-search__field__wrap">
                     <input className="ant-select-search__field"
-                           onChange={this.onInputChange.bind(this)}
-                           onKeyDown={this.onInputKeyDown.bind(this)}
-                           ref="searchInput"
-                           disabled={this.props.disabled}
-                           value={this.state.inputValue}/>
+                        onChange={this.onInputChange.bind(this)}
+                        onKeyDown={this.onInputKeyDown.bind(this)}
+                        ref="searchInput"
+                        disabled={this.props.disabled}
+                        value={this.state.inputValue} />
                     <span className="ant-select-search__field__mirror" ref="searchInputMirror">
                         {this.state.inputValue}
                     </span>
@@ -173,25 +174,25 @@ class CityInput extends Component {
         );
     }
 
-    render(){
+    render() {
 
-        return(
+        return (
             <div className={classnames({
                 'ant-select': true,
                 'ant-select-enabled': !this.props.disabled,
                 'ant-select-disabled': this.props.disabled,
                 'ant-select-focused': this.props.open
-                })}
-                 style={this.props.style}
-                 onClick={this.onClick.bind(this)}>
+            })}
+                style={this.props.style}
+                onClick={this.onClick.bind(this)}>
                 <div className={classnames({
                     'ant-select-selection': true,
                     'ant-select-selection--multiple': true
-                    })}
-                     role={'combobox'}>
+                })}
+                    role={'combobox'}>
                     <div className={classnames({
                         'ant-select-selection__rendered': true
-                        })}>
+                    })}>
                         {this.renderTagContainer()}
                     </div>
 
@@ -211,4 +212,5 @@ CityInput.propTypes = {
     onAddCity: PropTypes.func,
     onRemoveCity: PropTypes.func
 };
+
 export default CityInput;

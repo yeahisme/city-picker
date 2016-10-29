@@ -1,0 +1,121 @@
+.c_address_hd {
+    height: 24px;
+    border-color: #2C7ECF;
+    border-style: solid;
+    border-width: 1px 1px 0;
+    background-color: #67A1E2;
+    color: #fff;
+    line-height: 24px;
+    padding-left: 10px;
+    word-break: break-all;
+}
+		
+.c_address_bd {
+    border-color: #999999;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    overflow: hidden;
+    padding: 10px;
+}
+		
+.c_address_select {
+    width: 222px;
+    height: 355px;
+    font-family: Arial, Simsun;
+    font-size: 12px;
+}
+		
+.c_address_wrap {
+    width: 220px;
+    height: 349px;
+    min-height: 305px;
+    margin: 0;
+    padding: 0 0 4px;
+    border: 1px solid #969696;
+    background: #fff;
+    text-align: left;
+}
+
+.c_address_hd {
+    margin: -1px;
+}
+
+.c_address_list {
+    margin: 0;
+    padding: 0;
+    height: 300px;
+}
+
+.c_address_list label {
+    border-bottom: 1px solid #FFFFFF;
+    border-top: 1px solid #FFFFFF;
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    min-height: 22px;
+    overflow: hidden;
+    padding: 1px 9px 0;
+    text-align: center;
+}
+
+.c_address_list span {
+    float: right;
+    font: 10px/22px verdana;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    text-align: right;
+    white-space: nowrap;
+    width: 110px;
+}
+
+.c_address_list a {
+    border-bottom: 1px solid #FFFFFF;
+    border-top: 1px solid #FFFFFF;
+    color: #0055AA;
+    cursor: pointer;
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    min-height: 22px;
+    overflow: hidden;
+    padding: 1px 9px 0;
+    text-align: left;
+    text-decoration: none;
+}
+
+.c_address_list a.hover {
+    background: none repeat scroll 0 0 #E8F4FF;
+    border-bottom: 1px solid #7F9DB9;
+    border-top: 1px solid #7F9DB9;
+}
+
+.address_selected {
+    background: none repeat scroll 0 0 #FFE6A6;
+    color: #FFFFFF;
+    height: 22px;
+}
+
+.c_address_pagebreak {
+    line-height: 25px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.c_address_pagebreak a {
+    color: #0055AA;
+    display: inline-block;
+    font-family: Arial, Simsun, sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 0 4px;
+    text-align: center;
+    text-decoration: underline;
+    width: 15px;
+}
+
+a.address_current {
+    color: #000;
+    text-decoration: none;
+}

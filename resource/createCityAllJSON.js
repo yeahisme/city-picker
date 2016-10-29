@@ -7,18 +7,17 @@ const fs = require('fs');
 const cityFile = fs.readFileSync('./city-all.txt');
 const cityString = cityFile.toString();
 
-
-const cities = cityString.split('@').map((item,index) => {
+const cities = cityString.split('@').map((item, index) => {
     let [cityNameEn, cityNameCn, cityCode] = item.split('|');
     return {
         cityNameEn,
         cityNameCn,
-        cityCode,
-        index,
+        cityCode: parseInt(cityCode),
+        index: index - 1,
         checked: false,
-    }
-}).slice(0, -1);
-let json = JSON.stringify(cities);
+    };
+}).slice(1, -1);
+const json = JSON.stringify(cities);
 
 const value = 'const cities = ' + json + '; export default cities;';
 fs.writeFileSync('./data-all.js', value);

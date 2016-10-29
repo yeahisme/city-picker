@@ -1,6 +1,7 @@
-const classnames = require('classnames');
 import React, { Component, PropTypes } from 'react';
 import { Map } from 'immutable';
+
+const classnames = require('classnames');
 
 class CityItem extends Component {
     constructor(props) {
