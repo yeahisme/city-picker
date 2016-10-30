@@ -139,16 +139,29 @@ class CityPanel extends Component {
                     <div className={classnames({ 'city_item': true, hide: this.state.section !== CITY_SECTION_KEY.A })}>
                         <div className="city_item_in">
                             <span className="city_item_letter">A</span>
-
+                            {this.renderCityItem(1125)}
+                            {this.renderCityItem(136)}
+                            {this.renderCityItem(138)}
+                            {this.renderCityItem(135)}
+                            {this.renderCityItem(140)}
+                            {this.renderCityItem(141)}
+                            {this.renderCityItem(142)}
+                            {this.renderCityItem(144)}
+                            {this.renderCityItem(55)}
 
                         </div>
 
 
                         <div className="city_item_in">
                             <span className="city_item_letter">B</span>
-                            {this.renderCityItems(30, 43)}
-                            {this.renderCityItems(0, 1)}
-                            {this.renderCityItems(44, 49)}
+                            {this.renderCityItem(61706)}
+                            {this.renderCityItem(61730)}
+                            {this.renderCityItem(9323)}
+                            {this.renderCityItem(2958)}
+                            {this.renderCityItem(837)}
+                            {this.renderCityItem(147)}
+                            {this.renderCityItem(95)}
+
                         </div>
 
 

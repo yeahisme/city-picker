@@ -19,6 +19,6 @@ const cities = cityString.split('@').map((item, index) => {
 }).slice(1, -1);
 const json = JSON.stringify(cities);
 
-const value = 'const cities = ' + json + '; export default cities;';
-fs.writeFileSync('./data-all.js', value);
+fs.writeFileSync('./data-all.js', json);
+const value = `const cities = ${json}; export default cities;`;
 fs.writeFileSync('../src/cities.js', value);
