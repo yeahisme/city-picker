@@ -52,12 +52,12 @@ class CityPanel extends Component {
      */
     renderCityItems(startIndex, endIndex) {
         const cities = this.props.cities.slice(startIndex, endIndex);
-        return cities.map((item, index) => {
-            return (<CityItem city={item}
+        return cities.map((item, index) =>
+            (<CityItem city={item}
                 index={startIndex + index}
                 key={item.get('cityCode')}
-                onSelectCity={this.props.onSelectCity} />);
-        });
+                onSelectCity={this.props.onSelectCity} />)
+        );
     }
 
     renderCityItem(index) {
@@ -80,7 +80,7 @@ class CityPanel extends Component {
                     data-show={this.props.open}
                     style={{ display: this.props.open ? 'block' : 'none' }}>
                     <a className="close CQ_suggestionClose" onClick={() => { this.props.openCityPanel(false); } }>×</a>
-                    <p className="title">支持中文/拼音/简拼输入</p>
+                    <p className="title">支持中文/英文输入</p>
                     <ul className="tab_box">
                         <li className={classnames({ 'hot_selected': this.state.section === CITY_SECTION_KEY.HOT })}
                             onClick={this.changeCitySection(CITY_SECTION_KEY.HOT)}>

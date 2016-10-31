@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import { fromJS } from 'immutable';
 
 import CityInput from './CityInput';
 import CityPanel from './CityPanel';
-import cityData from './cities';
+import { immutableCityData, mapCityItem } from './util';
 import './CityPicker.css';
 
 class CityPicker extends Component {
@@ -15,7 +14,7 @@ class CityPicker extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cities: fromJS(cityData),
+            cities: immutableCityData,
             open: false,
             searching: false
         };
@@ -26,7 +25,6 @@ class CityPicker extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        // if value updated
         if ('value' in nextProps) {
             this.setSelectedCities(nextProps.value);
         }
@@ -43,29 +41,24 @@ class CityPicker extends Component {
      * set selected cities
      * @param cities
      */
-    setSelectedCities(cities) {
-        if (typeof cities === 'undefined') return;
+    setSelectedCities(cities, append = false) {
+        if (cities === null || typeof cities === 'undefined') return;
         cities = Object.prototype.toString.call(cities) === '[object Array]' ? cities : [cities];
-        // immutable list
-        let stateCities = this.state.cities;
-        cities.forEach((item) => {
-            const entry = stateCities.findEntry((value) => {
-                return value.get('cityNameCn') === item;
-            });
-
-            if (entry) {
-                // the city in data source
-                const [index] = entry;
-                stateCities = stateCities.updateIn([index, 'checked'], value => true);
-            } else {
-                // not in data source
-                stateCities = stateCities.push(fromJS({
-                    checked: true,
-                    cityNameCn: item,
-                    cityCode: (new Date()).valueOf() // generate a random key
-                }));
+        // match property type
+        if (!cities.every(item => (typeof item === 'object') && ('cityNameCn' in item)
+            && ('cityNameEn' in item) && ('cityCode' in item) && ('index' in item))) {
+            throw new Error('city item does not match shape of {cityNameCn, cityNameEn, cityCode, index, checked}');
+        }
+        const stateCities = this.state.cities.map((item) => {
+            if (cities.find(elem => elem.cityCode === item.get('cityCode'))) {
+                return item.set('checked', true);
             }
+            if (!append) {
+                return item.set('checked', false);
+            }
+            return item;
         });
+
         this.setState({
             cities: stateCities
         });
@@ -91,10 +84,9 @@ class CityPicker extends Component {
      */
     getSelectedCities() {
         return this.state.cities
-            .filter(item => item.get('checked'))
-            .map(item => item.get('cityNameCn')).toJS();
+            .filter(item => item.get('checked')).toJS();
+        // .map(item => item.get('cityNameCn')).toJS();
     }
-
 
 
     /**
@@ -102,14 +94,12 @@ class CityPicker extends Component {
      * @param city
      */
     onRemoveCity(city) {
-        const entry = this.state.cities.findEntry((value) => {
-            return value.get('cityNameCn') === city;
-        });
+        const entry = this.state.cities.findEntry(value => value.get('cityNameCn') === city.cityNameCn);
 
         if (entry) {
             const [index] = entry;
             this.setState({
-                cities: this.state.cities.updateIn([index, 'checked'], value => false)
+                cities: this.state.cities.updateIn([index, 'checked'], () => false)
             }, () => {
                 // trigger onChange event
                 this.props.onChange(this.getSelectedCities());
@@ -162,13 +152,13 @@ class CityPicker extends Component {
                     onRemoveCity={this.onRemoveCity.bind(this)}
                     openCityPanel={this.openCityPanel.bind(this)}
                     openSearchPanel={this.openSearchPanel.bind(this)}
-                />
+                    />
                 <CityPanel
                     cities={this.state.cities}
                     open={this.state.open}
                     openCityPanel={this.openCityPanel.bind(this)}
                     onSelectCity={this.onSelectCity.bind(this)}
-                />
+                    />
             </span>
         );
     }
@@ -196,5 +186,6 @@ CityPicker.propTypes = {
     ])),
     onChange: PropTypes.func
 };
+CityPicker.mapCityItem = mapCityItem;
 
 export default CityPicker;

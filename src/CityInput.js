@@ -4,6 +4,7 @@
  */
 import Animate from 'rc-animate';
 import React, { Component, PropTypes } from 'react';
+import { mapCityItem } from './util';
 import './CityInput.css';
 
 const classnames = require('classnames');
@@ -49,19 +50,28 @@ class CityInput extends Component {
     }
 
     onInputChange(e) {
-        let value = e.target.value;
+        const value = e.target.value;
         this.setInputValue(value);
     }
 
     onInputKeyDown(e) {
-        let keyCode = e.keyCode;
+        const keyCode = e.keyCode;
         if (keyCode === ENTER_KEY_CODE) {
-            let value = e.target.value;
-            this.props.onAddCity(value);
+            const value = e.target.value;
+            this.props.onAddCity(mapCityItem(value), true);
             this.setInputValue('');
         }
+
     }
 
+    onInputBlur(e) {
+        const value = e.target.value;
+        if (value.length && value.length > 1) {
+            this.props.onAddCity(mapCityItem(value), true);
+        }
+        this.setInputValue('');
+    }
+    
     setInputValue(inputValue) {
         this.setState({
             inputValue
@@ -109,10 +119,10 @@ class CityInput extends Component {
     renderTag(item, index) {
         const disabled = this.props.disabled;
         const choiceClassName = disabled
-            ? `ant-select-selection__choice ant-select-selection__choice__disabled`
-            : `ant-select-selection__choice`;
-        const key = typeof item === 'string' ? item : item.key;
-        const content = typeof item === 'string' ? item : item.label;
+            ? 'ant-select-selection__choice ant-select-selection__choice__disabled'
+            : 'ant-select-selection__choice';
+        const key = typeof item === 'string' ? item : item.cityCode;
+        const content = typeof item === 'string' ? item : item.cityNameCn;
         return (
             <li style={UNSELECTABLE_STYLE}
                 className={choiceClassName}
@@ -148,6 +158,7 @@ class CityInput extends Component {
                     <input className="ant-select-search__field"
                         onChange={this.onInputChange.bind(this)}
                         onKeyDown={this.onInputKeyDown.bind(this)}
+                        onBlur={this.onInputBlur.bind(this)}
                         ref="searchInput"
                         disabled={this.props.disabled}
                         value={this.state.inputValue} />
@@ -164,7 +175,7 @@ class CityInput extends Component {
      * @returns {XML}
      */
     renderTagContainer() {
-        let innerNode = [...this.renderTags(), this.renderInput()];
+        const innerNode = [...this.renderTags(), this.renderInput()];
         return (
             <Animate
                 component="ul"

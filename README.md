@@ -5,15 +5,32 @@ mice city picker
 ```
 $ npm install mice-city-picker
 ```
+### DEVELOP
+```
+// run in dir root
+$ npm run dev
+```
 ### Use
 ```javascript
 import CityPicker from 'mice-city-picker'
 
 ReactDOM.render(<CityPicker/>, mountedNode)
 ```
-
 ### With ant.design Form Component
+## IMPORTANT!!!
+
+#### value should be ctrip city format
+
+#### use CityPicker.mapCityItem to convert
+
+#### CityPicker.mapCityItem(value);
+
 ```
+someMehod (){
+    this.props.form.setFieldsValue({
+        city: CityPicker.mapCityItem(['上海']) // CityPicker.mapCityItem to convert into ctrip city format
+    });
+}
 // ...
 render(){
     return(
