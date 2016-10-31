@@ -1,5 +1,6 @@
 import { fromJS } from 'immutable';
-import cityData from './cities';
+
+const cityData = require('mice-city-data');
 
 export const immutableCityData = fromJS(cityData);
 

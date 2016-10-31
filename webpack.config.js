@@ -30,6 +30,18 @@ module.exports = {
             commonjs: 'react',
             commonjs2: 'react',
             amd: 'react'
+        },
+        'mice-city-data': {
+            root: 'mice-city-data',
+            commonjs: 'mice-city-data',
+            commonjs2: 'mice-city-data',
+            amd: 'mice-city-data'
+        },
+        'rc-animate': {
+            root: 'rc-animate',
+            commonjs: 'rc-animate',
+            commonjs2: 'rc-animate',
+            amd: 'rc-animate'
         }
     },
 
