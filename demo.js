@@ -23,7 +23,7 @@ class Wrapper extends Component {
     addCity(e) {
         const form = this.props.form;
         form.setFieldsValue({
-            city: CityPicker.mapCityItem(['上海'])
+            city: CityPicker.mapCityItem([''])
         });
     }
     addCityCode(e) {

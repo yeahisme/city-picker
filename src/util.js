@@ -15,6 +15,8 @@ export const mapCityItem = (cities) => {
             // city code
             entry = immutableCityData.findEntry(value => value.get('cityCode') === item);
         } else if (typeof item === 'string') {
+            // check empty string
+            if (item.trim() === '') { return undefined; }
             // city name
             entry = immutableCityData.findEntry(value => value.get('cityNameEn').toLowerCase().indexOf(item.toLowerCase()) !== -1);
             if (!entry) {

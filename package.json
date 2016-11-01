@@ -1,11 +1,11 @@
 {
   "name": "mice-city-picker",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "mice-city-picker",
   "main": "src/index.js",
   "scripts": {
-    "dev": "node ./server",
-    "pkg": "webpack --config -d"
+    "dev": "webpack --config webpack.dev.config.js --watch",
+    "pkg": "webpack -d"
   },
   "repository": {
     "type": "git",
