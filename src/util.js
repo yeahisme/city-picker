@@ -12,6 +12,9 @@ export const mapCityItem = (cities) => {
         let entry;
 
         if (typeof item === 'number') {
+            if (isNaN(item)) {
+                return undefined;
+            }
             // city code
             entry = immutableCityData.findEntry(value => value.get('cityCode') === item);
         } else if (typeof item === 'string') {
